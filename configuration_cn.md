@@ -1,6 +1,6 @@
 # 集群配置（Cluster configuration）
 
-C集群配置的最佳实践（luster configuration best practices）。
+集群配置的最佳实践（Cluster configuration best practices）。
 
 ## 批准的 Kubernetes 配置（Approved Kubernetes configuration）
 
