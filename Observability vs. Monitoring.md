@@ -10,15 +10,15 @@ With most of the application software now adopting several microservices and goi
 In this blog, we will take a look at（在这篇博文中，我们将讨论）：
 -------------------------------------
 
-*   **什么是监控？**[**What is Monitoring?**](#what-is-monitoring)
-*   **为什么在现在这个时代单靠监控是不足够的？**[**Why is Monitoring alone Insufficient in this Modern era?**](#why-is-monitoring-alone-insufficient)
-*   **什么是可观测性？**[**What is Observability?**](#what-is-observability)
-*   **可观测性的三大支柱**[**Three Pillars of Observability**](#three-pillars-of-observability)
-*   **可观测性与监控：有什么区别？**[**Observability vs. Monitoring: What's the difference?**](#monitoring-vs-observability-differences)
-*   **可观测性与监控：有何相似之处？**[**Observability vs. Monitoring: What are the Similarities?**](#monitoring-vs-observability-similarities)
-*   **监控与可观测性：对比**[**Monitoring vs. Observability: Comparison**](#monitoring-vs-observability-comparison)
-*   **监控和可观测性：哪个更好？**[**Monitoring and Observability: Which is Better?**](#observability-and-monitoring-which-is-better)
-*   **相关术语**[**Related Terms**](#related-terms)
+*   **什么是监控？**（[**What is Monitoring?**](#what-is-monitoring)）
+*   **为什么在现在这个时代单靠监控是不足够的？**（[**Why is Monitoring alone Insufficient in this Modern era?**](#why-is-monitoring-alone-insufficient)）
+*   **什么是可观测性？**（[**What is Observability?**](#what-is-observability)）
+*   **可观测性的三大支柱**（[**Three Pillars of Observability**](#three-pillars-of-observability)）
+*   **可观测性与监控：有什么区别？**（[**Observability vs. Monitoring: What's the difference?**](#monitoring-vs-observability-differences)）
+*   **可观测性与监控：有何相似之处？**（[**Observability vs. Monitoring: What are the Similarities?**](#monitoring-vs-observability-similarities)）
+*   **监控与可观测性：对比**（[**Monitoring vs. Observability: Comparison**](#monitoring-vs-observability-comparison)）
+*   **监控和可观测性：哪个更好？**（[**Monitoring and Observability: Which is Better?**](#observability-and-monitoring-which-is-better)）
+*   **相关术语**（[**Related Terms**](#related-terms)）
 
 什么是监控？（What is Monitoring?）
 -------------------
