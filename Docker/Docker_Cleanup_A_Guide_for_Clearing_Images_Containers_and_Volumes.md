@@ -1,6 +1,8 @@
 Docker 镜像、容器和存储卷清理指南（Docker Cleanup - A Guide for Clearing Images, Containers, and Volumes）
 =====================================================================
 
+***由 atatus 发布，[原文地址](https://www.atatus.com/blog/docker-cleanup/)***
+
 Docker has revolutionized application deployment, offering flexibility and efficiency through its containerization technology.
 
 Docker 彻底改变了应用程序部署，通过其容器化技术提供了灵活性，并提升了效率。
