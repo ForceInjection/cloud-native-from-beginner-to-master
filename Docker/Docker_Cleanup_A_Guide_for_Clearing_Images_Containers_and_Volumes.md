@@ -84,7 +84,7 @@ To check the disk space usage of Docker, you can use the following command,
 要检查 Docker 的磁盘空间使用情况，可以使用以下命令，
 
 ```bash
-	docker system df
+    docker system df
 ```    
 
 This command provides total disk space occupied by Docker components such as images, containers, volumes, and build cache. Here's a sample output.
@@ -92,7 +92,7 @@ This command provides total disk space occupied by Docker components such as ima
 此命令提供 Docker 组件（例如镜像、容器、存储卷和构建缓存）占用的总磁盘空间。这是一个示例输出。
 
 ```bash
-	docker system df
+    docker system df
     TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
     Images          4         0         2.863GB   2.863GB (100%)
     Containers      0         0         0B        0B
@@ -105,7 +105,7 @@ If you run `docker system df -v`, Docker will provide more detailed information 
 如果运行 `docker system df -v`，Docker 将提供有关磁盘使用情况的更详细信息，包括各个组件的大小、文件系统类型和挂载点。
 
 ```bash
-	docker system df -v
+    docker system df -v
 ```    
 
 Using the verbose option can be helpful when you need more detailed information for troubleshooting, analysis, or understanding the behaviour of Docker commands. Here's a sample output.
@@ -113,7 +113,7 @@ Using the verbose option can be helpful when you need more detailed information 
 当我们需要更详细的信息来进行故障排除、分析或了解 Docker 命令的行为时，使用详细选项会很有帮助。这是一个示例输出。
 
 ```bash
-	docker system df -v
+    docker system df -v
     Images space usage:
     
     REPOSITORY           TAG       IMAGE ID       CREATED       SIZE      SHARED SIZE   UNIQUE SIZE   CONTAINERS
@@ -184,7 +184,7 @@ If you want to force delete all the unused resources without confirmation, you c
 如果我们想强制删除所有未使用的资源而不确认，可以运行此命令，
 
 ```bash
-	docker system prune -f
+    docker system prune -f
 ```  
 
 This is useful when you want to automate Docker cleanup tasks or when you are confident about the resources you are deleting and don't need a confirmation step.
@@ -201,7 +201,7 @@ Just be cautious when using this option, as it will delete all unused resources 
 ### (i). 删除一个或者多个指定镜像（Remove one or more specific image）
 
 ```bash
-	docker images -a
+    docker images -a
 ```
 
 This command provides a list of Docker images, listing both base images and intermediate layers. It displays information such as image IDs, tags, and additional details for each entry.
@@ -224,9 +224,9 @@ Once you have identified the image/ images you want to remove, use the `docker r
 *   通过 ID 删除 docker 镜像（To remove a docker image by its ID）,
 
 ```bash
-	docker rmi image_id
+    docker rmi image_id
 	
-	docker rmi 5199d6829c95
+    docker rmi 5199d6829c95
     Untagged: node:latest
     Untagged: node@sha256:64c46a664eccedec63941dab4027c178a36debe08a232d4f9d7da5aca91cff3d
     Deleted: sha256:5199d6829c9501975002f30375c1b1ff47c5a71b8bfa07d9696c33fa6fb42c7b
@@ -244,9 +244,9 @@ Once you have identified the image/ images you want to remove, use the `docker r
 *   通过标签删除 docker 镜像（To remove a docker image by its tag）,
 
 ``` bash
-	docker rmi image_tag
+    docker rmi image_tag
 
-	docker rmi golang:latest
+    docker rmi golang:latest
     Untagged: golang:latest
     Untagged: golang@sha256:b1e05e2c918f52c59d39ce7d5844f73b2f4511f7734add8bb98c9ecdd4443365
     Deleted: sha256:e0aa2034f411a9f1a2480237a67461716a74dc096a5e74f07e17d30d3021aa8b
@@ -285,7 +285,7 @@ By using filters with the `docker image prune` command, you can specifically tar
 *   删除在 24 小时前创建的 docker 镜像（To remove docker images that were created more than 24 hours ago）
 
 ```bash
-	docker image prune --filter "until=24h"
+    docker image prune --filter "until=24h"
     WARNING! This will remove all dangling images.
     Are you sure you want to continue? [y/N] y
     Deleted Images:
@@ -303,7 +303,6 @@ By using filters with the `docker image prune` command, you can specifically tar
 
 ```bash
     docker image prune --filter "dangling=true"
-    
     untagged:mysql@sha256:091fe36a5591449a69d3011bf05cf083201e4c031101f071447bd985f5
     deleted: sha256:6f2df62f26cc90e1fa08d55f31d4b13f009d3849b1aff23b77797e284336acca
     Total reclaimed space: 743.9MB
@@ -318,7 +317,7 @@ This is a specific approach to manage Docker images, focusing on filtering and r
 *   首先使用以下命令列出所有 docker 镜像（First use the following command to list all the docker images）,
 
 ```bash
-	docker images -a
+    docker images -a
 
     REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
     golang               latest    e0aa2034f411   18 hours ago   823MB
@@ -329,7 +328,7 @@ This is a specific approach to manage Docker images, focusing on filtering and r
 *   然后使用 `grep "pattern"` 过滤此列表，仅显示与指定模式匹配的镜像（Then use `grep "pattern"` to filter this list, showing only the images that match the specified pattern）.
 
 ```bash
-	docker images -a | grep "mysql"
+    docker images -a | grep "mysql"
     mysql                latest    f3df03e3cfc9   7 days ago     585MB
 
 	docker images -a | grep "golang" | awk '{print $1":"$2}' | xargs docker rmi
@@ -359,7 +358,7 @@ To remove one or more containers using Docker, you can use the `docker rm` comma
 要使用 Docker 删除一个或多个容器，我们可以使用 `docker rm` 命令，后跟要删除的容器的容器 ID 或名称。
 
 ```bash
-	docker rm ID_or_Name ID_or_Name
+    docker rm ID_or_Name ID_or_Name
 
 	docker rm ac144553cdf7
     ac144553cdf7
@@ -428,7 +427,7 @@ This command helps to find containers whose names or other details match a speci
 此命令有助于查找名称或其他详细信息与特定模式匹配的容器。
 
 ```bash
-	docker ps -a | grep "node"
+    docker ps -a | grep "node"
     f7ea490859b7   node      "docker-entrypoint.s…"   30 seconds ago   Up 30 seconds             condescending_bardeen
 ```
 
@@ -437,7 +436,7 @@ After identifying the containers you want to remove, you can use the following c
 确定要删除的容器后，可以使用以下命令来删除它们。
 
 ```bash
-	docker ps -a | grep "pattern" | awk '{print $1}' | xargs docker rm
+    docker ps -a | grep "pattern" | awk '{print $1}' | xargs docker rm
 ```    
 
 Here `awk '{print $1}'` part extracts the container IDs from the output, and `xargs docker rm` passes the IDs to the `docker rm` command to remove the containers.
@@ -445,7 +444,7 @@ Here `awk '{print $1}'` part extracts the container IDs from the output, and `xa
 这里，`awk '{print $1}'` 部分从输出中提取容器 ID，而 `xargs docker rm` 将 ID 传递给 `docker rm` 命令以删除容器。
 
 ```bash
-	docker ps -a | grep "node" | awk '{print $1}' | xargs docker rm
+    docker ps -a | grep "node" | awk '{print $1}' | xargs docker rm
     f7ea490859b7
 ```
 
@@ -456,7 +455,7 @@ The `docker container prune` command is used to remove all stopped containers. E
 `docker container prune` 命令用于删除所有停止的容器。执行此命令将永久删除所有已停止的容器。在运行之前，请确保我们不再需要已停止容器中的任何数据。
 
 ```bash
-	docker container prune
+    docker container prune
     WARNING! This will remove all stopped containers.
     Are you sure you want to continue? [y/N] y
     Deleted Containers:
@@ -484,7 +483,7 @@ To list the existing Docker volumes to identify the ones you want to remove, you
 要列出现有的 Docker 存储卷以识别要删除的存储卷，可以使用以下命令，
 
 ```bash
-	docker volume ls 
+    docker volume ls 
     DRIVER    VOLUME NAME
     local     0dbd5e14f4424f0b38a208a8c0d2ad2c04c26b4f6f616ce26df833c275d5f3b8
     local     6e157b921a0856acf3e73f26f96facfab9eab8d3cb135bacf641be949ca30014
@@ -542,7 +541,7 @@ The `docker volume prune` command is an easy way to clean up the unused volumes 
 `docker volume prune` 命令是一种一次性清理未使用的存储卷的简单方法。当我们运行此命令时，Docker 会识别当前未被任何容器使用的存储卷并删除它们。
 
 ```bash
-	docker volume prune
+    docker volume prune
     WARNING! This will remove anonymous local volumes not used by at least one container.
     Are you sure you want to continue? [y/N] y
     Deleted Volumes:
@@ -584,7 +583,7 @@ To remove multiple networks, you can use `docker network rm` command followed by
 要删除多个网络，我们可以使用 `docker network rm` 命令，后跟要删除的网络的 ID/名称。
 
 ```bash
-	docker network rm id name
+    docker network rm id name
 
 	docker network rm d82c6deafecf my-bridge-network 
     d82c6deafecf
