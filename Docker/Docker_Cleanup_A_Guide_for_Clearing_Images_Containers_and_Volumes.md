@@ -360,7 +360,7 @@ To remove one or more containers using Docker, you can use the `docker rm` comma
 ```bash
     docker rm ID_or_Name ID_or_Name
 
-	docker rm ac144553cdf7
+    docker rm ac144553cdf7
     ac144553cdf7
 ```
 
@@ -503,7 +503,7 @@ From the list generated, note down the names or ID's you want to remove. Then us
 ```bash
     docker volume rm volume_name1 volume_name2
 
-	docker volume rm 0dbd5e14f4424f0b38a208a8c0d2ad2c04c26b4f6f616ce26df833c275d5f3b8
+    docker volume rm 0dbd5e14f4424f0b38a208a8c0d2ad2c04c26b4f6f616ce26df833c275d5f3b8
     0dbd5e14f4424f0b38a208a8c0d2ad2c04c26b4f6f616ce26df833c275d5f3b8
 ```
 
@@ -572,7 +572,7 @@ Use the command given below to remove a network from Docker
 ```bash
     docker network rm name
 
-	docker network rm my-bridge-network
+    docker network rm my-bridge-network
     my-bridge-network
 ```
 
@@ -585,7 +585,7 @@ To remove multiple networks, you can use `docker network rm` command followed by
 ```bash
     docker network rm id name
 
-	docker network rm d82c6deafecf my-bridge-network 
+    docker network rm d82c6deafecf my-bridge-network 
     d82c6deafecf
     my-bridge-network
 ```
