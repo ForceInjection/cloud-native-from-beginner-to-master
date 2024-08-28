@@ -1,4 +1,3 @@
-
 People often get confused between Monitoring and [Observability](https://www.atatus.com/glossary/observability/?utm_source=atatus&utm_medium=blog&utm_campaign=aiswarya&utm_id=2024) and use them interchangeably in the [DevOps](https://www.atatus.com/glossary/devops/) field. But they are two very unique concepts. Since we work in this sphere, I thought it was ideal to clear up this confusion and give you the right information on it.
 
 人们经常混淆`监控`和`可观测性`，并在 DevOps 领域将它们混着使用。但它们是两个非常独特的概念。

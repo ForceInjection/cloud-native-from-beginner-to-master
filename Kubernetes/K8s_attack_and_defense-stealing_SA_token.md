@@ -1,5 +1,3 @@
-
-
 # k8s攻防-窃取Service Account令牌获取集群权限及对应检测方式 - 先知社区
 
 k8s攻防-窃取Service Account令牌获取集群权限及对应检测方式
