@@ -12,7 +12,7 @@ Kubernetes
 
 Observability
 --------
-- [**Observability vs. Monitoring**]("Observability/Observability vs. Monitoring.md")
+- [**Observability vs. Monitoring**](Observability/Observability%20vs.%20Monitoring.md)
 
 Production best-practices
 --------
