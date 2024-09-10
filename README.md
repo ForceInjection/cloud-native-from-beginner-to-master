@@ -10,6 +10,7 @@ Kubernetes
 - [**k8s攻防-窃取Service Account令牌获取集群权限及对应检测方式 - 先知社区**](Kubernetes/K8s_attack_and_defense-stealing_SA_token.md)
 - [**Kubernetes 存储卷快照**](Kubernetes/Kubernetes_Volume_Snapshots.md)
 - [**追踪 Kubernetes 中的网络流量**](Kubernetes/kubernetes_network_fundamental.md)
+- [**在 Kubernetes 上设计和测试高可用性 Kafka 集群**](Kubernetes/Kafka_HA_on_Kubernetes.md)
 
 Observability
 --------
