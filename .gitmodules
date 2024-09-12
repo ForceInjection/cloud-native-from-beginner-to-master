@@ -1,0 +1,12 @@
+[submodule "Linux"]
+	path = Linux
+	url = git@github.com:ForceInjection/linux-from-beginner-to-master.git
+[submodule "Helm"]
+	path = Helm
+	url = git@github.com:ForceInjection/helm-masterclass.git
+[submodule "Docker-Fundamentals"]
+	path = Docker-Fundamentals
+	url = git@github.com:ForceInjection/docker-fundamentals.git
+[submodule "Kubernetes-fundamentals"]
+	path = Kubernetes-fundamentals
+	url = git@github.com:ForceInjection/kubernetes-fundamentals.git
