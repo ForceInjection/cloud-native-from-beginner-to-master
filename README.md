@@ -16,7 +16,7 @@ Docker 原理与实践
 
 Kubernetes 入门
 --------
-- [**Kubernetes 入门**](Kubernetes-Fundamentals/README.md)
+- [**Kubernetes 入门**](Kubernetes-fundamentals/README.md)
 
 Kubernetes 原理与实践
 --------
