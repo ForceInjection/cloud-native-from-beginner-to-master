@@ -79,17 +79,17 @@ mutatorpodstatuses.status.gatekeeper.sh              2022-11-29T07:04:44Z
 providers.externaldata.gatekeeper.sh                 2022-11-29T07:04:44Z
 ```
 
-One of them is **“constrainttemplates.templates.gatekeeper.sh”** using that we can create **Constraints** and **Constraint Templates** to work with gatekeeper:
+One of them is “**constrainttemplates.templates.gatekeeper.sh**” using that we can create **Constraints** and **Constraint Templates** to work with gatekeeper:
 
 ![kubernetes-policy-management-ii-opa-gatekeeper](opa/kubernetes-policy-management-ii-opa-gatekeeper.jpg)
 From: [https://dev.to/ashokan/kubernetes-policy-management-ii-opa-gatekeeper-465g](https://dev.to/ashokan/kubernetes-policy-management-ii-opa-gatekeeper-465g)
 
-● [**ConstraintTemplates**](https://open-policy-agent.github.io/gatekeeper/website/docs/howto) define a way to validate some set of Kubernetes objects in Gatekeeper’s Kubernetes admission controller. They are made of two main elements:
+- [**ConstraintTemplates**](https://open-policy-agent.github.io/gatekeeper/website/docs/howto) define a way to validate some set of Kubernetes objects in Gatekeeper’s Kubernetes admission controller. They are made of two main elements:
 
-1.  [Rego](https://www.openpolicyagent.org/docs/latest/#rego) code that defines a policy violation
-2.  The schema of the accompanying **`Constraint`** object, which represents an instantiation of a **`ConstraintTemplate`**
+	1.  [Rego](https://www.openpolicyagent.org/docs/latest/#rego) code that defines a policy violation
+	2.  The schema of the accompanying **`Constraint`** object, which represents an instantiation of a **`ConstraintTemplate`**
 
-● A **Constraint** is a declaration of requirements that a system needs to meet. In another word, **Constraints** are used to inform Gatekeeper that the admin wants a ConstraintTemplate to be enforced, and how.
+- A **Constraint** is a declaration of requirements that a system needs to meet. In another word, **Constraints** are used to inform Gatekeeper that the admin wants a ConstraintTemplate to be enforced, and how.
 
 ![OPA](opa/constraint_crd.png)
 From: [https://grumpygrace.dev/posts/intro-to-gatekeeper-policies/](https://grumpygrace.dev/posts/intro-to-gatekeeper-policies/)
