@@ -24,6 +24,7 @@ Kubernetes 原理与实践
 - [**Kubernetes 存储卷快照**](Kubernetes/Kubernetes_Volume_Snapshots.md)
 - [**追踪 Kubernetes 中的网络流量**](Kubernetes/kubernetes_network_fundamental.md)
 - [**在 Kubernetes 上设计和测试高可用性 Kafka 集群**](Kubernetes/Kafka_HA_on_Kubernetes.md)
+- [**OPA 简介**](Kubernetes/OPA_introduction.md)
 
 Helm 入门
 --------
@@ -36,5 +37,5 @@ Observability 原理与实践
 生产最佳实践
 --------
 - [Application development](application-development_cn.md)
-- [Governance](governance.md)
+- [Governance](governance_cn.md)
 - [Cluster configuration](configuration_cn.md)
