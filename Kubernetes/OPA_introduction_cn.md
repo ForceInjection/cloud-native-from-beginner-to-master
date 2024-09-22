@@ -1,26 +1,28 @@
-What is OPA:
+# Open Policy Agent（OPA）简介
+
+# 什么是 OPA？
 ------------
 ![OPA](opa/opa.jpg)
 
-The [Open Policy Agent (OPA)](https://www.openpolicyagent.org/docs/latest/) is an open-source, general-purpose policy engine that unifies policy enforcement across the stack. OPA provides a high-level declarative language that lets us specify policies as code and simple APIs to offload policy decision-making from our software. We can use OPA to enforce policies in microservices, Kubernetes, CI/CD pipelines, API gateways, and more. **In kubernetes, OPA uses admission controllers.**
+[Open Policy Agent（OPA）](https://www.openpolicyagent.org/docs/latest/)是一个开源的、通用的策略引擎，它统一了整个栈中的策略执行。OPA 提供了一个高级的声明式语言，让我们能够将策略以代码的形式指定，并通过简单的 API 将策略决策从我们的软件中卸载。我们可以使用 OPA 在微服务、Kubernetes、CI/CD 流水线、API 网关等中应用策略。**在 Kubernetes 中，OPA 使用了准入控制器。**
 
-What is OPA Gatekeeper?
+## 什么是 OPA Gatekeeper？
 -----------------------
 
-[OPA Gatekeeper](https://open-policy-agent.github.io/gatekeeper) is a specialized project providing first-class integration between OPA and Kubernetes.
+[OPA Gatekeeper](https://open-policy-agent.github.io/gatekeeper) 是一个专门提供 OPA 和 Kubernetes 之间集成的专用项目。
 
-OPA Gatekeeper adds the following on top of plain OPA:
+OPA Gatekeeper 在 OPA 基础上增加了以下功能：
 
-- An extensible, parameterized policy library.  
-- Native Kubernetes CRDs for instantiating the policy library (aka “**_constraints_**”).  
-- Native Kubernetes CRDs for extending the policy library (aka “**_constraint templates_**”).  
-- Audit functionality.
+- 一个可扩展的、参数化的策略库。
+- 用于实例化策略策略库的原生 Kubernetes CRD（即“**_约束_**”）。
+- 用于扩展策略库的原生 Kubernetes CRD（即“**_约束模板_**”）。
+- 审计功能。
 
 ![OPA](opa/opa_gatekeeper_architecture.jpg)
 
-From: [Kubernetes Blog](https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/)
+来自：[Kubernetes博客](https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/)
 
-Gatekeeper Installation:
+## Gatekeeper 安装：
 ------------------------
 
 ```bash
@@ -55,10 +57,10 @@ mutatingwebhookconfiguration.admissionregistration.k8s.io/gatekeeper-mutating-we
 validatingwebhookconfiguration.admissionregistration.k8s.io/gatekeeper-validating-webhook-configuration created
 ```
 
-Following are the objects created as part of the gatekeeper installation:
+以下是作为 gatekeeper 安装一部分创建的**对象**：
 
 ```bash
-kubectl get all -n gatekeeper-system    
+kubectl get all -n gatekeeper-system  
 NAME                                                READY   STATUS    RESTARTS     AGE
 pod/gatekeeper-audit-fbcc6f694-zx67r                1/1     Running   1 (6s ago)   31s
 pod/gatekeeper-controller-manager-56d5f9bc7-9zg8r   1/1     Running   0            31s
@@ -66,7 +68,7 @@ pod/gatekeeper-controller-manager-56d5f9bc7-gh866   1/1     Running   0         
 pod/gatekeeper-controller-manager-56d5f9bc7-mz8t5   1/1     Running   0            31s
 
 NAME                                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
-service/gatekeeper-webhook-service   ClusterIP   10.102.198.93   <none>        443/TCP   31s
+service/gatekeeper-webhook-service   ClusterIP   10.102.198.93           443/TCP   31s
 
 NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/gatekeeper-audit                1/1     1            1           31s
@@ -77,20 +79,20 @@ replicaset.apps/gatekeeper-audit-fbcc6f694                1         1         1 
 replicaset.apps/gatekeeper-controller-manager-56d5f9bc7   3         3         3       31s
 ```
 
-Validating Admission Control
+## 验证准入控制
 ----------------------------
 
-Once all the Gatekeeper components have been installed in our cluster, the API server will trigger the Gatekeeper admission webhook to process the admission request whenever a resource in the cluster is created, updated, or deleted.  
-During the validation process, Gatekeeper acts as a bridge between the API server and OPA. The API server will enforce all policies executed by OPA.
+一旦所有 Gatekeeper 组件都安装在我们的集群中，API 服务器将触发 Gatekeeper 准入 webhook 来处理每当集群中的资源被创建、更新或删除时的准入请求。
+在验证过程中，Gatekeeper 充当 API 服务器和 OPA 之间的桥梁。API 服务器将执行由 OPA 执行的所有策略。
 
-**CustomResourceDefinition**
+## 自定义资源定义
 ----------------------------
 
-The **CustomResourceDefinition** ([CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) API allows us to define custom resources. Defining a CRD object creates a new custom resource with a name and schema that we specify. The Kubernetes API serves and handles the storage of your custom resources.
+自定义资源定义（[CustomResourceDefinition, CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)）API 允许我们定义自定义资源。定义 CRD 对象会创建一个新的自定义资源，其名称和模式由我们指定。Kubernetes API 服务并处理存储您的自定义资源。
 
-Gatekeeper uses [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) internally and allows us to define **ConstraintTemplates** and **Constraints** to enforce policies on Kubernetes resources such as Pods, Deployments, and Jobs.
+Gatekeeper 在内部使用[自定义资源定义](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)，并允许我们定义 ConstraintTemplates 和 Constraints 来在 Kubernetes 资源（如 Pods、Deployments 和 Jobs）上应用策略。
 
-Gatekeeper creates several CRDs during the installation process :
+Gatekeeper 在安装过程中创建了如下几个 CRD：
 
 ```bash
 kubectl get crd | grep -i gatekeeper
@@ -110,194 +112,199 @@ providers.externaldata.gatekeeper.sh                 2024-09-22T13:05:30Z
 syncsets.syncset.gatekeeper.sh                       2024-09-22T13:05:30Z
 ```
 
-One of them is “**constrainttemplates.templates.gatekeeper.sh**” using that we can create **Constraints** and **Constraint Templates** to work with gatekeeper:
+其中之一是“**constrainttemplates.templates.gatekeeper.sh**”，我们可以使用它来创建 Constraints 和 Constraint Templates 来与 gatekeeper 一起工作：
 
 ![kubernetes-policy-management-ii-opa-gatekeeper](opa/kubernetes-policy-management-ii-opa-gatekeeper.jpg)
-From: [https://dev.to/ashokan/kubernetes-policy-management-ii-opa-gatekeeper-465g](https://dev.to/ashokan/kubernetes-policy-management-ii-opa-gatekeeper-465g)
+来自：https://dev.to/ashokan/kubernetes-policy-management-ii-opa-gatekeeper-465g
 
-- [**ConstraintTemplates**](https://open-policy-agent.github.io/gatekeeper/website/docs/howto) define a way to validate some set of Kubernetes objects in Gatekeeper’s Kubernetes admission controller. They are made of two main elements:
+- 约束模板（[**ConstraintTemplates**](https://open-policy-agent.github.io/gatekeeper/website/docs/howto) ）定义了 Gatekeeper 的 Kubernetes 准入控制器中验证一组Kubernetes对象的方式。它们由两个主要元素组成：
 
-	1.  [Rego](https://www.openpolicyagent.org/docs/latest/#rego) code that defines a policy violation
-	2.  The schema of the accompanying **`Constraint`** object, which represents an instantiation of a **`ConstraintTemplate`**
+  1. 定义策略违规的 [Rego](https://www.openpolicyagent.org/docs/latest/#rego) 代码；
+  2. 伴随**约束（`Constraint`）**对象的模式，该对象表示约束模板的实例化
 
-- A **Constraint** is a declaration of requirements that a system needs to meet. In another word, **Constraints** are used to inform Gatekeeper that the admin wants a ConstraintTemplate to be enforced, and how.
+- **约束**是对系统需要满足的要求的声明。换句话说，约束用于通知 Gatekeeper 管理员希望强制执行约束模板，以及如何执行。
 
 ![OPA](opa/constraint_crd.png)
 From: [https://grumpygrace.dev/posts/intro-to-gatekeeper-policies/](https://grumpygrace.dev/posts/intro-to-gatekeeper-policies/)
 
-Following is an illustration of how CRD, Contraint Template, and Constraint connect with each other:
+以下是CRD、Constraint Template和Constraint如何相互连接的示意图：
 
 ![OPA](opa/crd_relationship.jpg)
 
-Walkthrough
+## 示例
 -----------
 
-Now let’s say we want to enforce a policy so that a kubernetes resource (such as a pod, namespace, etc) must have a particular label defined. To achieve that let’s create a **`ConstraintTemplate`** first and then create a **`Constraint`** :
+现在假设我们想要实施一个策略，要求 Kubernetes 资源（如 Pod、命名空间等）必须定义一个特定的标签。为了实现这一点，我们首先创建一个 ConstraintTemplate，然后创建一个 Constraint：
 
-ConstraintTemplate:
--------------------
+### ConstraintTemplate：
 
-Following is the **`ConstraintTemplate.yaml`** file, we will use this file to create an **`ConstraintTemplate`** on our k8s cluster:
+以下是 **ConstraintTemplate.yaml** 文件，我们将使用此文件在 K8s 集群上创建一个 **ConstraintTemplate**：
 
 ```yaml
-# ConstraintTemplate.yaml  
-# ---------------------------------------------------------------  
-apiVersion: templates.gatekeeper.sh/v1  
-kind: ConstraintTemplate                    # Template Identifying Info  
-metadata:  
-  name: k8srequiredlabels  
-# ----------------------------------------------------------------  
-spec:  
-  crd:  
-    spec:  
-      names:  
-        kind: K8sRequiredLabels        # Template values for constraint crd's                                            
-      validation:  
-        # Schema for the `parameters` field  
-        openAPIV3Schema:  
-          type: object  
-          properties:  
-            labels:  
-              type: array  
-              items:  
-                type: string  
-# ----------------------------------------------------------------  
-  targets:  
-    - target: admission.k8s.gatekeeper.sh  
-      rego: |                                     # Rego  
-        package k8srequiredlabels  
-  
-        violation\[{"msg": msg, "details": {"missing_labels": missing}}] {  
-          provided := {label | input.review.object.metadata.labels[label]}  
-          required := {label | label := input.parameters.labels[_]}  
-          missing := required - provided  
-          count(missing) > 0  
-          msg := sprintf("you must provide labels: %v", [missing])  
-        }  
-# ----------------------------------------------------------------
+#ConstraintTemplate.yaml
+# ---------------------------------------------------------------
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredlabels
+# ---------------------------------------------------------------
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredLabels
+      validation:
+        # Schema for the `parameters` field
+        openAPIV3Schema:
+          type: object
+          properties:
+            labels:
+              type: array
+              items:
+                type: string
+# ---------------------------------------------------------------
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredlabels
+
+        violation[{"msg": msg, "details": {"missing_labels": missing}}] {
+          provided := {label | input.review.object.metadata.labels[label]}
+          required := {label | label := input.parameters.labels[_]}
+          missing := required - provided
+          count(missing) > 0
+          msg := sprintf("you must provide labels: %v", [missing])
+        }
+# ---------------------------------------------------------------
 ```
-Create the **`ConstraintTemplate`** using the above-defined manifests :
+
+使用上述定义的清单创建 **ConstraintTemplate**：
 
 ```bash
-kubectl create -f ConstraintTemplate.yaml  
+kubectl create -f ConstraintTemplate.yaml
 ```
-  
-#　List the available ConstraintTemplate's   
+
+列出可用的 **ConstraintTemplate**：
 
 ```bash
-kubectl get ConstraintTemplate  
+kubectl get ConstraintTemplate
+  
 NAME                AGE  
 k8srequiredlabels   29s
 ```
 
-Constraint: **pod label**
+### 约束：Pod 标签
 -------------------------
 
-Now, let's create a **`Constraint`** that will enforce that a pod must have a policy named “**app**” every time a pod is created. Following is the **`Constraint`** file named “**pod-must-have-app-level.yaml**”
+现在，让我们创建一个约束，强制 Pod 必须有一个名为“**app**”标签的策略，每次创建 Pod 时都需要。以下是名为“**pod-must-have-app-level.yaml**”的约束文件：
 
 ```yaml
-#pod-must-have-app-level.yaml
+pod-must-have-app-level.yaml
 
-apiVersion: constraints.gatekeeper.sh/v1beta1  
-kind: K8sRequiredLabels  
-metadata:  
-  name: pod-must-have-app-level  
-spec:  
-  match:  
-    kinds:  
-      - apiGroups: [""]  
-        kinds: ["Pod"]     
-  parameters:  
-    labels: ["app"]    
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: pod-must-have-app-level
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]   
+  parameters:
+    labels: ["app"]  
 ```
 
-Create the **`Constraint`** on our kubernetes cluster and list the available constraints:
+在我们的 Kubernetes 集群上创建约束，并列出可用的约束：
 
 ```bash
-kubectl create -f pod-must-have-app-level.yaml  
+kubectl create -f pod-must-have-app-level.yaml
+```
 
-# List the available Constraint's
+列出可用的约束：
+
+```bash
 kubectl get constraints
-  
-NAME                      ENFORCEMENT-ACTION   TOTAL-VIOLATIONS  
+
+NAME                      ENFORCEMENT-ACTION   TOTAL-VIOLATIONS
 pod-must-have-app-level   deny                 13
 ```
 
-Now, let's create a pod without defining the label and observe what happens:
+现在，让我们创建一个没有定义标签的 Pod，并观察会发生什么：
 
 ```bash
-# Create a pod without labels  
+#创建一个没有标签的Pod
 kubectl run nginx --image=nginx
 
 Error from server (Forbidden): admission webhook "validation.gatekeeper.sh" denied the request: [pod-must-have-app-level] you must provide labels: {"app"}
 ```
 
-As we can see in the above demonstration, a pod creation request is being denied because the required “label” is not provided while creating the pod.
+正如我们在上述演示中看到的，由于在创建 Pod 时没有提供所需的“**app**”标签，因此 Pod 创建请求被拒绝。
 
-Now, let’s create a pod with the “**app**” label and observe the behavoiur:
+现在，让我们创建一个带有“**app**”标签的 Pod 并观察行为：
 
 ```bash
-# Create a pod with label
-kubectl run nginx --image=nginx --labels=app=test  
+#创建带有标签的Pod
+kubectl run nginx --image=nginx --labels=app=test
 pod/nginx created
 ```
 
-In the above demonstration, we can see that pod is deployed without any issues because we specified the required label while creating the pod.
+在上述演示中，我们可以看到 Pod 没有任何问题地部署了，因为我们在创建 Pod 时指定了所需的标签。
 
-**Constraint: namespace label**
+### 约束：命名空间标签
 -------------------------------
 
-A **`ConstraintTemplate`** can be used by several **`Constraint`**. In the previous phase, we specified a **`Constraint`** so that a pod must have a particular label. If required we can create another **`Constraint`** using the same **`ConstraintTemplate`** but this time it will be for a namespace. We can write a **`Constraint`** so that a namespace must have a particular label.
-
-Following is the **`Constraint`** file named **“ns-must-label-state.yaml”** for enforcing the namespaces to have a particular label called “**state**”:
+以下是名为“**ns-must-label-state.yaml**”的约束文件，用于强制命名空间具有一个名为“**state**”的特定标签：
 
 ```yaml
-# ns-must-label-state.yaml  
-  
-apiVersion: constraints.gatekeeper.sh/v1beta1  
-kind: K8sRequiredLabels  
-metadata:  
-  name: ns-must-label-state  
-spec:  
-  match:  
-    kinds:  
-      - apiGroups: [""]  
-        kinds: ["Namespace"]  
-  parameters:  
+#ns-must-label-state.yaml
+
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: ns-must-label-state
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+  parameters:
     labels: ["state"]
 ```
 
-Let’s create **`Constraint`** using the above-defined **“ns-must-label-state.yaml” :**
+让我们使用上述定义的“**ns-must-label-state.yaml**”创建约束：
 
 ```bash
-kubectl create -f ns-must-label-state.yaml  
+kubectl create -f ns-must-label-state.yaml
+```
 
-# List the available Constraint's
-kubectl get constraints  
-NAME                      ENFORCEMENT-ACTION   TOTAL-VIOLATIONS  
-ns-must-label-state       deny                 5  
+列出可用的约束：
+
+```bash
+kubectl get constraints
+NAME                      ENFORCEMENT-ACTION   TOTAL-VIOLATIONS
+ns-must-label-state       deny                 5
 pod-must-have-app-level   deny                 13
 ```
 
-And then create a **namespace** without defining the required label which is “**state**” in the current case:
+然后创建一个没有定义所需标签“**state**”的命名空间：
 
 ```bash
-kubectl create ns test  
+kubectl create ns test
 
 Error from server (Forbidden): admission webhook "validation.gatekeeper.sh" denied the request: [ns-must-label-state] you must provide labels: {"state"}
 ```
 
-Now, create a namespace using the required label and see what happens:
+现在，创建一个包含所需的标签的命名空间并看看会发生什么：
 
 ```yaml
-# test-ns.yaml  
+#test-ns.yaml
 
-apiVersion: v1  
-kind: Namespace  
-metadata:  
-  name: test  
-  labels:  
-    state: dev   #<--- 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test
+  labels:
+    state: dev   #<---
 ```
 
 ```bash
@@ -305,28 +312,30 @@ kubectl create -f test-ns.yaml
 namespace/test created
 ```
 
-In the above demonstration, we can see that the namespace is created without any issues because we specified the required label.
+在上述演示中，我们可以看到命名空间没有任何问题地创建了，因为我们指定了所需的标签。
 
-Check for Violations
+## 检查违规
 --------------------
 
-We can describe or inspect a **`Constraint`** to find out policy violations by the existing kubernetes resources:
+我们可以通过描述或检查约束来找出现有 Kubernetes 资源违反策略的情况：
 
 ```bash
-# To describe a Constraint
+#描述一个约束
+
 kubectl describe <ConstraintTemplate>  <Constraint>
 ```
-Let’s describe the “**ns-must-label-state**” constraint:
+
+让我们查看“**ns-must-label-state**”约束：
 
 ```bash
-                  [ConstraintTemplate]  [Constraint]  
-kubectl describe  k8srequiredlabels     ns-must-label-state 
-# ---------------------------------------------------------------
-  
+                  [ConstraintTemplate]  [Constraint]
+kubectl describe  k8srequiredlabels     ns-must-label-state
+
+#---------------------------------------------------------------
 Name:         ns-must-label-state
 Namespace:
-Labels:       <none>
-Annotations:  <none>
+Labels:       
+Annotations:  
 API Version:  constraints.gatekeeper.sh/v1beta1
 Kind:         K8sRequiredLabels
 Metadata:
@@ -340,9 +349,7 @@ Spec:
     Kinds:
       API Groups:
 
-      Kinds:
-        Namespace
-  Parameters:
+Parameters:
     Labels:
       state
 Status:
@@ -451,14 +458,14 @@ Status:
     Message:             you must provide labels: {"state"}
     Name:                default
     Version:             v1
-Events:                  <none>
+Events:                  <none>                  
 ```
 
-In the above illustration, we can see that there are several namespaces that violate the policy, It is because they (namespaces) were created before the **“ns-must-label-state”** constraint is created.
+在上述示例中，我们可以看到有多个命名空间违反了策略，这是因为这些命名空间是在创建“**ns-must-label-state**”约束之前就已经创建了。
 
-OPA Gatekeeper Library
+## OPA Gatekeeper 库
 ----------------------
 
-There is a community-owned library of policies for OPA gatekeeper projects.
+有一个社区拥有的库，用于 OPA Gatekeeper 项目的策略。
 
 ● [OPA Gatekeeper Library](https://open-policy-agent.github.io/gatekeeper-library/website/)
