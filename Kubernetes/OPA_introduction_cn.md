@@ -4,7 +4,7 @@
 ------------
 ![OPA](opa/opa.jpg)
 
-[Open Policy Agent（OPA）](https://www.openpolicyagent.org/docs/latest/)是一个开源的、通用的策略引擎，它统一了整个栈中的策略执行。OPA 提供了一个高级的声明式语言，让我们能够将策略以代码的形式指定，并通过简单的 API 将策略决策从我们的软件中卸载。我们可以使用 OPA 在微服务、Kubernetes、CI/CD 流水线、API 网关等中应用策略。**在 Kubernetes 中，OPA 使用了准入控制器。**
+[Open Policy Agent（OPA）](https://www.openpolicyagent.org/docs/latest/)是一个开源的、通用的策略引擎，它统一了整个栈中的策略执行。OPA 提供了一个高级的声明式语言，让我们能够将策略以代码的形式指定，并通过简单的 API 将策略决策从 Kubernetes 转到我们的代码来执行。我们可以使用 OPA 在微服务、Kubernetes、CI/CD 流水线、API 网关等中应用策略。**在 Kubernetes 中，OPA 使用了准入控制器。**
 
 ## 什么是 OPA Gatekeeper？
 -----------------------
