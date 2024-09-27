@@ -34,6 +34,10 @@ Observability 原理与实践
 --------
 - [**Observability vs. Monitoring**](Observability/Observability%20vs.%20Monitoring.md)
 
+AI Infra
+--------
+- [**AI Infra Fundermentals**](AI-fundermentals/README.md)
+
 生产最佳实践
 --------
 - [Application development](application-development_cn.md)

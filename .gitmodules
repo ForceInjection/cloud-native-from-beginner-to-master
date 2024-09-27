@@ -10,3 +10,6 @@
 [submodule "Kubernetes-fundamentals"]
 	path = Kubernetes-fundamentals
 	url = git@github.com:ForceInjection/kubernetes-fundamentals.git
+[submodule "AI-fundermentals"]
+	path = AI-fundermentals
+	url = git@github.com:ForceInjection/AI-fundermentals.git
