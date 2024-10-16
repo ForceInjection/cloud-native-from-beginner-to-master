@@ -25,6 +25,7 @@ Kubernetes 原理与实践
 - [**追踪 Kubernetes 中的网络流量**](Kubernetes/kubernetes_network_fundamental.md)
 - [**在 Kubernetes 上设计和测试高可用性 Kafka 集群**](Kubernetes/Kafka_HA_on_Kubernetes.md)
 - [**OPA 简介**](Kubernetes/OPA_introduction_cn.md)
+- [**Benchmark results of Kubernetes network plugins (CNI) over 40Gbit/s network \[2024\]**](https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-40gbit-s-network-2024-156f085a5e4e)
 
 Helm 入门
 --------
