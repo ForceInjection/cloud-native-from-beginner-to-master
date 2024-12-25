@@ -27,6 +27,10 @@ Kubernetes 原理与实践
 - [**OPA 简介**](Kubernetes/OPA_introduction_cn.md)
 - [**Benchmark results of Kubernetes network plugins (CNI) over 40Gbit/s network \[2024\]**](https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-40gbit-s-network-2024-156f085a5e4e)
 
+
+## CNCF 白皮书
+- [在 Kubernetes 上运行数据白皮书 - 数据库模式](data-on-kubernetes-whitepaper-databases-cn.md)
+
 Helm 入门
 --------
 - [**Helm 入门**](Helm/README.md)
