@@ -67,10 +67,13 @@
 
 ### 2.3 OSS License 选择
 
-* 1)《Everything you need to know about Open Source & Third-party Software Policy Guidelines》: https://www.bridgenext.com/blog/everything-you-need-to-know-about-open-source-third-party-software-policy-guidelines/ 
+* 《**Everything you need to know about Open Source & Third-party Software Policy Guidelines**》
+	- **地址**：https://www.bridgenext.com/blog/everything-you-need-to-know-about-open-source-third-party-software-policy-guidelines/ 
  ![](https://resources.bridgenext.com/wp-content/uploads/2024/02/OSS-components-guidance.png)
 
-* 2) 《如何选择开源许可证？》：https://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
+* 《**如何选择开源许可证？**》
+	- **作者**：`阮一峰`
+	- **地址**：https://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
 ![License 区别](https://www.ruanyifeng.com/blogimg/asset/201105/bg2011050101.png)
 
 ## 3. `Kubernetes` 生态各软件的 `License` 分类整理
