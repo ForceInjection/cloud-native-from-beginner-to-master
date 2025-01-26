@@ -1,4 +1,4 @@
-# Kubernetes CronJobs 技术深度解析：大规模自动化
+# 从入门到精通：全面解读 Kubernetes CronJobs
 
 > **作者**：`Scaibu`<br/>
 > **原文地址**：https://scaibu.medium.com/technical-deep-dive-into-kubernetes-cronjobs-automation-at-scale-c258864a3bf0
