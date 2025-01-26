@@ -42,7 +42,7 @@ OAM 架构由以下核心部分组成：
   定义了 OAM 的核心概念，包括组件、运维特征、应用配置等，为应用开发和运维提供统一的描述标准。OAM Spec 是 OAM 的核心文档，详细描述了如何定义和管理应用。  
 
 - **OAM Runtime（运行时）:**  
-  OAM Runtime 是 OAM 的执行引擎，负责解析和执行基于 OAM Spec 编写的应用配置文件。它将 OAM 应用描述转换为底层平台（如 Kubernetes）能够理解的资源对象。常见的实现包括 [KubeVela](https://kubevela.io/) 和 Rudr。  
+  OAM Runtime 是 OAM 的执行引擎，负责解析和执行基于 OAM Spec 编写的应用配置文件。它将 OAM 应用描述转换为底层平台（如 Kubernetes）能够理解的资源对象。常见的实现包括 [KubeVela](https://kubevela.io/) 和 [Rudr(目前已经被归档了)](https://github.com/oam-dev/rudr)。  
 
 - **OAM Plugins（插件）:**  
   提供额外的功能扩展，例如监控、日志、安全策略等。通过插件机制，OAM 可以灵活适配不同的应用场景并满足复杂需求。  
@@ -462,7 +462,7 @@ kubectl apply -f failover-controller.yaml
 
 **OAM** 由 **阿里云** 和 **微软** 共同发起，最初以独立开源规范的形式推出。这两家公司在 OAM 和 KubeVela 项目的早期发展中起到了关键推动作用。然而，随着时间的推移，社区贡献者的范围逐渐扩大，越来越多的企业和个人开发者开始参与，为项目注入了新的活力和多样性。然而，从整体来看，OAM 的发展仍然缺乏一个强有力的基金会作为后盾。
 
-**KubeVela** 是 OAM 的主要实现，也是推动 OAM 社区发展的核心项目。尽管 KubeVela 与 **CNCF** 技术生态高度兼容，但目前它并非 CNCF 的官方孵化项目。
+**KubeVela** 是 OAM 的主要实现，也是推动 OAM 社区发展的核心项目。KubeVela 于 2021 年 6 月 22 日被 CNCF 技术监督委员会（TOC）接受为沙箱项目，并于 2023 年 2 月 27 日正式晋升为 CNCF 孵化项目。
   
 #### 5.2.2 Kubevela 社区的活跃度
 
@@ -503,6 +503,5 @@ OAM 提供了一种**简单、灵活且可扩展**的应用定义和管理方式
 
 - [Open Application Model 官方文档](https://oam.dev/)
 - [KubeVela 官方文档](https://kubevela.io/)
-- [Rudr 官方文档](https://rudr.io/)
-- [KubeVela 官方博客](https://kubevela.io/blog)
-- [OAM 社区讨论](https://github.com/oam-dev/spec/discussions)
+- [KubeVela 官方博客](https://kubevela.io/blog/)
+- [OAM SIG](https://i.cloudnative.to/oam)
